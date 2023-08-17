@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-import static org.bouncycastle.cms.RecipientId.password;
+
 
 public class LoginPage extends BasePage {
 
-    private static final By LOGIN_BUTTON = By.xpath("//button[@type='submit']");
+    private static final By LOGIN_BUTTON = By.xpath("//button[@type='submit']/div");
     private static final By PASSWORD_INPUT = By.xpath("//input[@id='password']");
     private static final By LOGIN_INPUT = By.xpath("//input[@id='login']");
     private static final By ERROR_MESSAGE = By.xpath("//div[@class='alert alert-danger' and @ng-show='formStatus']");
@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage open() {
-        driver.get(BASE_URL + "login");
+        driver.get(BASE_URL + "/app/#/");
         return this;
     }
 
@@ -32,7 +32,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage clickLoginButton() {
         driver.findElement(LOGIN_BUTTON).click();
-        return new LoginPage(driver);
+        return new MainPage(driver);
     }
 
     public String getErrorMessage() {
@@ -40,12 +40,9 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public boolean isPageOpen() {
-        try {
-            driver.findElement(LOGIN_BUTTON);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+    public boolean isPageOpen () {
+        return isExist(LOGIN_BUTTON);
+
     }
+
 }

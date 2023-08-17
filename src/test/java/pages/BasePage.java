@@ -12,7 +12,7 @@ public abstract class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
-    public static final String BASE_URL = "https://monkkee.com/en";
+    public static final String BASE_URL = "https://monkkee.com/";
 
     public BasePage(WebDriver driver) {
 
