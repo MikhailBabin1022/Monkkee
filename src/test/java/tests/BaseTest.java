@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
-import pages.MainPage;
+import pages.HomePage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +15,7 @@ public class BaseTest {
 
     WebDriver driver;
     LoginPage loginPage;
-    MainPage mainPage;
+    HomePage mainPage;
 
 
 
@@ -30,7 +30,8 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
-        mainPage = new MainPage(driver);
+        mainPage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
 
 
 
