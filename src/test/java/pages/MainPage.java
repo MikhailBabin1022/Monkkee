@@ -20,6 +20,5 @@ public static final By ICON_RIGHT = By.xpath("//i[@class='icon-chevron-right']")
 
 
 
+    }
 
-
-}
