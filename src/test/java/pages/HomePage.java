@@ -15,6 +15,9 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+
+
+
     @Step("Open site")
     public HomePage open() {
         driver.get(BASE_URL + "en");
@@ -22,6 +25,8 @@ public class HomePage extends BasePage {
 
 
     }
+
+}
 
 
 
