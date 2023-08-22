@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,11 +18,9 @@ public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
+    MainPage mainPage;
 
-
-
-
-
+    @Step("Setting up and opening the browser")
     @BeforeMethod
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -32,20 +31,12 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
         mainPage = new MainPage(driver);
-
-
-
-
-
-
-
-
     }
-
+    @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
-
         driver.quit();
     }
 }
