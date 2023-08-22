@@ -5,11 +5,10 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-
         @Test(description = "User validates login and password")
         public void inputValidDateUserAndPassword() {
                 loginPage.open();
-                loginPage.inputLoginAndPassword("mislavik@tut.by", "8*!pDzuTH#75gYq");
+                loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
                 loginPage.clickLoginButton();
                 loginPage.isPageOpen();
                 Assert.assertTrue(loginPage.isPageOpen());
@@ -28,7 +27,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "User did not enter a password")
         public void inputNotPassword() {
                 loginPage.open();
-                loginPage.inputLoginAndPassword("mislavik@tut.by", "");
+                loginPage.inputLoginAndPassword("hsaat@mailto.plus", "");
                 loginPage.clickLoginButton();
                 loginPage.isPageOpen();
                 Assert.assertTrue(loginPage.getErrorMessage().equals("Mandatory field"));
@@ -37,7 +36,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "The user has not entered a login")
         public void inputNotEnteredLogin() {
                 loginPage.open();
-                loginPage.inputLoginAndPassword("", "8*!pDzuTH#75gYq");
+                loginPage.inputLoginAndPassword("", "BC12345WGHHGHGHGHGHVG");
                 loginPage.clickLoginButton();
                 loginPage.isPageOpen();
                 Assert.assertTrue(loginPage.getErrorMessage().equals("Mandatory field"));
@@ -51,13 +50,18 @@ public class LoginTest extends BaseTest {
                 loginPage.isPageOpen();
                 Assert.assertTrue(loginPage.getErrorMessage().equals("Mandatory field"));
         }
+
+        @Test(description = "The user entered Russian c instead of English c in the Password field.")
+        public void inputIncorrectCharacterInPassword() {
+                loginPage.open();
+                loginPage.inputLoginAndPassword("hsaat@mailto.plus", "Bс12345WGHHGHGHGHGHVG");
+                loginPage.clickLoginButton();
+                loginPage.isPageOpen();
+                Assert.assertTrue(loginPage.getErrorMessage().equals("Login failed"));
+        }
+
+
 }
-
-
-
-
-
-
 
 
 

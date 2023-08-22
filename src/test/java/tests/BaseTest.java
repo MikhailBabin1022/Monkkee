@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.HomePage;
+import pages.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,8 @@ public class BaseTest {
 
     WebDriver driver;
     LoginPage loginPage;
-    HomePage mainPage;
+    HomePage homePage;
+
 
 
 
@@ -30,8 +32,9 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
-        mainPage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
+        mainPage = new MainPage(driver);
+
+
 
 
 
