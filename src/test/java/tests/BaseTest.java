@@ -19,10 +19,6 @@ public abstract class BaseTest {
     protected LoginPage loginPage;
     protected MainPage mainPage;
 
-
-
-
-
     @Step("Setting up and opening the browser")
     @BeforeMethod
     public void setUp(){
@@ -33,15 +29,11 @@ public abstract class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-        loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
-        mainPage = new MainPage(driver) {
-            @Override
-            public boolean isPageOpen() {
-                return false;
-            }
-        };
+        loginPage = new LoginPage(driver);
+        mainPage = new MainPage(driver);
     }
+
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
