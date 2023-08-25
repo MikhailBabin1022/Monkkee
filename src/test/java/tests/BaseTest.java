@@ -7,18 +7,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.LoginPage;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public abstract class BaseTest {
+    protected WebDriver driver;
+    protected HomePage homePage;
+    protected LoginPage loginPage;
+    protected MainPage mainPage;
 
-    WebDriver driver;
-    LoginPage loginPage;
-    HomePage homePage;
-    MainPage mainPage;
+
+
+
 
     @Step("Setting up and opening the browser")
     @BeforeMethod
@@ -32,7 +35,12 @@ public class BaseTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
-        mainPage = new MainPage(driver);
+        mainPage = new MainPage(driver) {
+            @Override
+            public boolean isPageOpen() {
+                return false;
+            }
+        };
     }
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)
