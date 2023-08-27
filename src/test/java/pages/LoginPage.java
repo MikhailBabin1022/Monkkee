@@ -1,16 +1,12 @@
 package pages;
 
-import  io.qameta.allure.Step;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
-import pages.MainPage;
 
 @Log4j2
 public class LoginPage extends BasePage {
-
     private static final By LOGIN_BUTTON = By.xpath("//button[@type='submit']/div");
     private static final By PASSWORD_INPUT = By.xpath("//input[@id='password']");
     private static final By LOGIN_INPUT = By.xpath("//input[@id='login']");
@@ -43,12 +39,7 @@ public class LoginPage extends BasePage {
     public MainPage clickLoginButton() {
         driver.findElement(LOGIN_BUTTON).click();
         log.info("Login button clicked");
-        return new MainPage(driver) {
-            @Override
-            public boolean isPageOpen() {
-                return false;
-            }
-        };
+        return new MainPage(driver);
     }
 
     @Step("User receives a login error message")

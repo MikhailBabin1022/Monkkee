@@ -2,11 +2,10 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import static org.testng.Assert.assertEquals;
 
 public class LoginTest extends BaseTest {
 
-        @Test(description = "User validates login and password")
+        @Test(description = "User validate login and password")
         public void inputValidDataUserAndPassword() {
                 loginPage.open();
                 loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
@@ -54,4 +53,5 @@ public class LoginTest extends BaseTest {
                 loginPage.clickLoginButton();
                 Assert.assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
+
 }

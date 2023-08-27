@@ -11,13 +11,13 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.MainPage;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public abstract class BaseTest {
-    protected WebDriver driver;
-    protected HomePage homePage;
-    protected LoginPage loginPage;
-    protected MainPage mainPage;
+    WebDriver driver;
+    HomePage homePage;
+    LoginPage loginPage;
+    MainPage mainPage;
 
     @Step("Setting up and opening the browser")
     @BeforeMethod
@@ -27,7 +27,7 @@ public abstract class BaseTest {
         options.addArguments("--start-maximized");
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
@@ -37,6 +37,8 @@ public abstract class BaseTest {
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)
     public void tearDown(){
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,19 +25,14 @@ public abstract class BasePage {
 
     public abstract boolean isPageOpen();
 
-    public boolean isExist(By locator){
+    public boolean isExist(By locator) {
         try {
             return driver.findElement(locator).isDisplayed();
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             return false;
         }
     }
-
-
 }
-
-
-
 
 
 
