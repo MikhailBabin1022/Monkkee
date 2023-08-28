@@ -12,7 +12,7 @@ import java.time.Duration;
 @Log4j2
 public abstract class BasePage {
 
-    protected WebDriver driver;
+    WebDriver driver;
     WebDriverWait wait;
     public static final String BASE_URL = "https://monkkee.com/";
 
@@ -32,7 +32,10 @@ public abstract class BasePage {
             return false;
         }
     }
-}
+
+
+    }
+
 
 
 

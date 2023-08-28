@@ -6,7 +6,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class HomeTest extends BaseTest {
 
-    @Test("User open website")
+    @Test(description = "User open website")
     public void userOpensWebsite() {
         homePage.open();
         homePage.isPageOpen();
@@ -14,7 +14,7 @@ public class HomeTest extends BaseTest {
         assertTrue(homePage.isPageOpen());
     }
 
-    @Test("")
+
 
 
 

@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
 
 
 import static com.google.gson.internal.bind.TypeAdapters.URL;
@@ -13,6 +14,7 @@ public class HomePage extends BasePage {
     public static final By SIGN_UP = By.xpath("//a[@class=\"btn btn-primary home__register-btn\" and @href=\"/account/registration\"]");
     public static final By Donate = By.xpath("//a[@class='btn btn-primary home__donation-btn' and @href='/app/#/settings/donation_payment']");
     public static final By MONKKEE_RELOAD = By.xpath("//span[@class='monkkee-kee']");
+    private Logger log;
 
 
     public HomePage(WebDriver driver) {
