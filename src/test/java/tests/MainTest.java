@@ -22,7 +22,7 @@ public class MainTest extends BaseTest {
     @Test(description = "Delete entry")
     public void deleteEntry() {
         loginPage.open();
-        loginPage.inputLoginAndPassword("aadxeep@mailto.plus", "Nata1111");
+        loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
         loginPage.clickLoginButton();
         mainPage.isPageOpen();
         mainPage.createNewEntry();
