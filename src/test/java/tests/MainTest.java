@@ -12,9 +12,24 @@ public class MainTest extends BaseTest {
         loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
         loginPage.clickLoginButton();
         mainPage.isPageOpen();
-        mainPage.createNewEntry("Hello World !!!");
+        mainPage.createNewEntry("Hello World!!!");
         mainPage.clickHomeButton();
 
-        Assert.assertTrue(loginPage.isPageOpen());
+        Assert.assertTrue(mainPage.isPageOpen());
     }
+
+
+    @Test(description = "Delete entry")
+    public void deleteEntry() {
+        loginPage.open();
+        loginPage.inputLoginAndPassword("aadxeep@mailto.plus", "Nata1111");
+        loginPage.clickLoginButton();
+        mainPage.isPageOpen();
+        mainPage.createNewEntry();
+        mainPage.deleteEntry();
+        mainPage.clickHomeButton();
 }
+
+    }
+
+
