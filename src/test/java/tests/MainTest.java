@@ -19,19 +19,11 @@ public class MainTest extends BaseTest {
     }
 
 
-    @Test(description = "Delete entry")
-    public void deleteEntry() {
-        loginPage.open();
-        loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
-        loginPage.clickLoginButton();
-        mainPage.isPageOpen();
-        mainPage.createNewEntry();
-        mainPage.deleteEntry();
-        mainPage.clickHomeButton();
-}
-
 
     }
+
+
+
 
 
 

@@ -22,7 +22,7 @@ public class MainPage extends BasePage {
         super(driver);
     }
 
-    public void createNewEntry() {
+    public void createNewEntry(String text) {
         driver.findElement(CREATE_AN_ENTRY).click();
         log.info("Create new entry");
     }
