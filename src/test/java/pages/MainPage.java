@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 
 import java.net.URL;
 
+import static java.awt.SystemColor.text;
+
 @Log4j2
 public class MainPage extends BasePage {
 
@@ -28,12 +30,6 @@ public class MainPage extends BasePage {
         super(driver);
     }
 
-    @Step("Open page")
-    public MainPage open() {
-        driver.get(URL + "app/#/entries");
-        log.info("Open page with URL:" + URL);
-        return this;
-    }
 
     @Step("Create a new entry with the text")
     public MainPage createNewEntryWithText(String text){
@@ -95,5 +91,10 @@ public class MainPage extends BasePage {
         driver.findElement(ICON_RIGHT).click();
         log.info("Press Icon left +Xpath");
         return this;
+    }
+
+    @Override
+    public boolean isPageOpen() {
+        return isExist(CREATE_AN_ENTRY);
     }
 }
