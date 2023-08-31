@@ -8,7 +8,7 @@ public class LoginTest extends BaseTest {
 
 
 
-        @Test(description = "User enters valid data")
+        @Test(description = "Validate login and password")
         public void inputValidDataUserAndPassword() {
                 loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
