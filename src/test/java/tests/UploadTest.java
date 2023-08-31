@@ -1,4 +1,7 @@
 package tests;
 
-public class UploadTest {
+public class UploadTest extends BaseTest{
+
+
+
 }

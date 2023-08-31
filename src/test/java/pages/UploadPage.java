@@ -1,6 +1,6 @@
 package pages;
 
-public class UploadPage {
+public class UploadPage extends BasePage {
 
 
 
