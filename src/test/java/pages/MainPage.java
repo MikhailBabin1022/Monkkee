@@ -34,11 +34,11 @@ public class MainPage extends BasePage {
     @Step("Create a new entry with the text")
     public MainPage createNewEntryWithText(String text){
         driver.findElement(CREATE_AN_ENTRY).click();
-        log.info("Push button CREATE_AN_ENTRY");
+        log.info("Click button CREATE_AN_ENTRY");
         driver.findElement(TEXT_INPUT_FIELD).sendKeys(text);
         log.info("Entry field opened");
         driver.findElement(SAVE_BUTTON).click();
-        log.info("Press save button");
+        log.info("Click save button");
         return this;
     }
 
