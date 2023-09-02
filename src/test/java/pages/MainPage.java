@@ -89,7 +89,7 @@ public class MainPage extends BasePage {
     @Step("Click Icon Right")
     public MainPage clickIconRight() {
         driver.findElement(ICON_RIGHT).click();
-        log.info("Press Icon left +Xpath");
+        log.info("Press Icon right +Xpath");
         return this;
     }
 

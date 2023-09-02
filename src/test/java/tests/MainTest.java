@@ -2,9 +2,9 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.MainPage;
 
-import static java.awt.SystemColor.text;
+
+
 
 public class MainTest extends BaseTest {
 

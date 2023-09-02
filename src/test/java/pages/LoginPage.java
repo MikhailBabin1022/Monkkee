@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_INPUT = By.xpath("//input[@id='login']");
     private static final By ERROR_MESSAGE = By.xpath("//div[@class='alert alert-danger' and @ng-show='formStatus']");
     private static final By PASSWORD_REMINDER = By.xpath("//a[@href=\"/account/password_reminder\"]");
-    private static final By REGISTER = By.xpath("//a[@href='/account/registration' and normalize-space()='Register']");
+    private static final By REGISTER_BUTTON = By.xpath("//a[@href='/account/registration' and normalize-space()='Register']");
     private static final By FIELD_USER_ERROR = By.xpath("//input[@name='login']");
     private static final By FIELD_PASSWORD_ERROR = By.xpath("//input[@id='password']");
 
