@@ -94,7 +94,7 @@ public class MainPage extends BasePage {
     }
 
     @Override
-    public boolean isPageOpen() {
+    public static boolean isPageOpen() {
         return isExist(CREATE_AN_ENTRY);
     }
 }
