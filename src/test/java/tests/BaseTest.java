@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+import pages.ImageUploadPage;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -18,7 +19,7 @@ public abstract class BaseTest {
     HomePage homePage;
     LoginPage loginPage;
     MainPage mainPage;
-
+    ImageUploadPage imageUploadPage;
     @Step("Setting up and opening the browser")
     @BeforeMethod
     public void setUp(){
@@ -31,6 +32,7 @@ public abstract class BaseTest {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         mainPage = new MainPage(driver);
+        imageUploadPage = new ImageUploadPage(driver);
     }
 
     @Step("Exit the browser")
