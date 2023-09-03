@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
 
     @Step("Open page")
     public LoginPage open() {
-        driver.get(BASE_URL + "/app/#/");
+        driver.get(BASE_URL + "/app#/");
         log.info("Page opened");
         return this;
     }
