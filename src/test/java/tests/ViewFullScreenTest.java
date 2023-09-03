@@ -6,6 +6,8 @@ import pages.MainPage;
 import pages.ViewFullScreenPage;
 
 public class ViewFullScreenTest extends BaseTest {
+    public ViewFullScreenTest() {
+    }
 
     @Test(description = "Click Full Screen")
     public void clickFullScreen() {
@@ -16,6 +18,8 @@ public class ViewFullScreenTest extends BaseTest {
         mainPage.createNewEntryWithText("");
         ViewFullScreenPage.FULL_SCREEN_BUTTON();
         Assert.assertTrue(ViewFullScreenPage.isPageOpen());
+
+
     }
 }
 
