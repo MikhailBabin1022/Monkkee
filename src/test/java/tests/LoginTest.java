@@ -2,19 +2,22 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.MainPage;
+
+import static org.testng.AssertJUnit.assertTrue;
 
 public class LoginTest extends BaseTest {
 
 
 
 
-        @Test(description = "Input login and password")
+        @Test(description = "Validate login and password")
         public void inputValidDataUserAndPassword() {
                 loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-                Assert.assertTrue(MainPage.isPageOpen());
+                .assertTrue(HomePage.isPageOpen());
 
         }
 
