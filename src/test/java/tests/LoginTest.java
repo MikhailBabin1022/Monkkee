@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.MainPage;
 
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class LoginTest extends BaseTest {
@@ -17,7 +18,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-                .assertTrue(HomePage.isPageOpen());
+                assertTrue(HomePage.isPageOpen());
 
         }
 
@@ -26,7 +27,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("wewewew", "wewewewew")
                 .clickLoginButton();
-                Assert.assertEquals(loginPage.getErrorMessage(), "Login_failed");
+               assertEquals(loginPage.getErrorMessage(), "Login_failed");
 
         }
 
@@ -35,7 +36,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "")
                 .clickLoginButton();
-                Assert.assertEquals(loginPage.getErrorMessage(), "Mandatory field");
+                assertEquals(loginPage.getErrorMessage(), "Mandatory field");
         }
 
         @Test(description = "The user has not entered a login")
@@ -43,7 +44,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-                Assert.assertEquals(loginPage.getErrorMessage(), "Mandatory field");
+               assertEquals(loginPage.getErrorMessage(), "Mandatory field");
         }
 
         @Test(description = "The user did not enter a user and password")
@@ -51,7 +52,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("", "")
                 .clickLoginButton();
-                Assert.assertEquals(loginPage.getErrorMessage(), "Mandatory field");
+                assertEquals(loginPage.getErrorMessage(), "Mandatory field");
         }
 
         @Test(description = "The user entered a Russian 'с' instead of an English 'c' in the Password field.")
@@ -59,7 +60,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "Bс12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-                Assert.assertEquals(loginPage.getErrorMessage(), "Login failed");
+                assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
 
 }
