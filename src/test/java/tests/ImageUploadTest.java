@@ -1,21 +1,26 @@
 package tests;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.ImageUploadPage;
-import pages.MainPage;
 
-import java.time.Duration;
+import java.io.File;
 
 public class ImageUploadTest extends BaseTest {
 
-    public ImageUploadTest() {
+    @Test
+    public void FileUpload() {
+        driver.get("https://monkkee.com/app/#/entries/3784723");
+
+        File file = new File("src/test/resources/Depeche-Mode-wallpaper-3ee848ff8d502a9856541997f1095905.jpg");
+        driver.findElement(By.xpath("\"//input[@id='cke_388_fileInput_input' and @type='file' and @name='txtUpload']\"")).sendKeys(file.getAbsolutePath());
+        driver.findElement(By.xpath("//span[@id='cke_405_label' and @class='cke_dialog_ui_button' and text()='OK']")).click();
+
+        Assert.assertEquals( "File Uploaded!","File Uploaded");
     }
 }
+
+
+
 
