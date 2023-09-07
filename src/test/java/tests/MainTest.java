@@ -23,7 +23,6 @@ public class MainTest extends BaseTest {
         loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
         loginPage.clickLoginButton();
         mainPage.isPageOpen();
-        mainPage.createNewEntryWithText("");
         mainPage.selectAllEntries();
         mainPage.deleteEntry();
 
