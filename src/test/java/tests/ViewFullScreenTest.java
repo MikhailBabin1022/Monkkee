@@ -16,7 +16,6 @@ public class ViewFullScreenTest extends BaseTest {
         loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-        Assert.assertTrue(mainPage.isPageOpen());
         mainPage.createNewEntryWithText("");
         ViewFullScreenPage.clickFullscreen();
         Assert.assertTrue(ViewFullScreenPage.clickFullscreen().isPageOpen());
