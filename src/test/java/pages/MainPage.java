@@ -23,12 +23,15 @@ public class MainPage extends BasePage {
     public static final By ICON_RIGHT = By.xpath("//i[@class='icon-chevron-right']");
     public static final By HOME_BUTTON = By.xpath("//a[@class=\"btn btn-default\" and @href=\"#/entries\" and @id=\"back-to-overview\" and @title=\"Back to overview\"]");
     public static final By SAVE_BUTTON = By.xpath("//a[@class='cke_button cke_button__savetoggle cke_button_off cke_button_disabled']");
+    public static final By ALL_CHECKBOX = By.xpath("//input[@ng-change='selectOrUnselectAll()']");
     public static final By TEXT_INPUT_FIELD = By.xpath("//div[contains(@class,'contenteditable cke_editable')]");
     private Logger log;
 
     public MainPage(WebDriver driver) {
         super(driver);
     }
+
+
 
 
     @Step("Create a new entry with the text")
@@ -92,9 +95,17 @@ public class MainPage extends BasePage {
         log.info("Press Icon right +Xpath");
         return this;
     }
+    @Step("Select all entries")
+    public MainPage selectAllEntries() {
+        driver.findElement(ALL_CHECKBOX).click();
+        log.info("Click all Chrckbox +Xpath");
+    }
+
+
+
 
     @Override
-    public static boolean isPageOpen() {
+    public  boolean isPageOpen() {
         return isExist(CREATE_AN_ENTRY);
     }
 }
