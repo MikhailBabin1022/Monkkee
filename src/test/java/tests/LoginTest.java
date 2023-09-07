@@ -3,6 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.MainPage;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -18,7 +19,7 @@ public class LoginTest extends BaseTest {
                 loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-                assertTrue(HomePage.isPageOpen());
+                assertTrue(mainPage.isPageOpen());
 
         }
 
