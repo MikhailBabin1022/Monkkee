@@ -12,14 +12,21 @@ import java.time.Duration;
 @Log4j2
 public abstract class BasePage {
 
-    static WebDriver driver;
+    public static WebDriver driver;
     WebDriverWait wait;
     public static final String BASE_URL = "https://monkkee.com/";
+    public static final By MONKEY_RELOAD_BUTTON = By.xpath("//span[@class=monkkee-kee]");
 
     public BasePage(WebDriver driver) {
 
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    }
+
+    public void clickMRB(){
+        driver.findElement(MONKEY_RELOAD_BUTTON).click();
+
+
     }
 
 
