@@ -1,37 +1,48 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static org.testng.AssertJUnit.assertTrue;
+
+@Log4j2
 public class MainTest extends BaseTest {
 
     @Test(description = "Create a new entry")
     public void userCreateEntry() {
-        loginPage.open();
-        loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
-        loginPage.clickLoginButton();
-        mainPage.isPageOpen();
-        mainPage.createNewEntryWithText("");
-        mainPage.clickHomeButton();
+        loginPage.open()
+                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                .clickLoginButton()
+                .createNewEntryWithText("")
+                .clickHomeButton();
 
         Assert.assertTrue(mainPage.isPageOpen());
     }
 
     @Test(description = "Delete all entry")
-    public void userDeleteEntry() {
-        loginPage.open();
-        loginPage.inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG");
-        loginPage.clickLoginButton();
-        mainPage.isPageOpen();
-        mainPage.selectAllEntries();
-        mainPage.deleteEntry();
+    public void userDeleteAllEntry() {
+        loginPage.open()
+                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                .clickLoginButton()
+                .selectAllEntries()
+                .clickdeleteEntry();
 
         Assert.assertTrue(mainPage.isPageOpen());
-
-
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
