@@ -37,4 +37,6 @@ public class ImageUploadPage extends BasePage {
         driver.findElement(OK_BUTTON).click();
         return this;
     }
+
+
 }

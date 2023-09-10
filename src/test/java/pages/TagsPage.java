@@ -26,6 +26,7 @@ public class TagsPage extends BasePage {
         return this;
     }
 
+
     @Step("Click Edit Tags")
     public TagsPage clickEditTags() {
         driver.findElement(EDIT_TAGS_BUTTON).click();
