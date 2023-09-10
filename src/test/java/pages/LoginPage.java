@@ -15,6 +15,7 @@ public class LoginPage extends BasePage {
     private static final By REGISTER_BUTTON = By.xpath("//a[@href='/account/registration' and normalize-space()='Register']");
     private static final By FIELD_USER_ERROR = By.xpath("//input[@name='login']");
     private static final By FIELD_PASSWORD_ERROR = By.xpath("//input[@id='password']");
+    private static final By EMPTY_LOGIN_PASSWORD_FIELD = By.xpath("//div[@class=\"help-block ng-binding\" and contains(text(), \"Mandatory field\")]");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -58,9 +59,16 @@ public class LoginPage extends BasePage {
 
     @Step("The user receives a message about an empty Password field")
     public String getUserEmptyPasswordField() {
-        String passwordEmptyFieldMessage = driver.findElement(FIELD_PASSWORD_ERROR).getText();
-        log.info("Empty Password field message received: " + passwordEmptyFieldMessage);
-        return passwordEmptyFieldMessage;
+        String getUserPasswordEmptyFieldMessage = driver.findElement(FIELD_PASSWORD_ERROR).getText();
+        log.info("Empty Password field message received: " + getUserPasswordEmptyFieldMessage);
+        return getUserPasswordEmptyFieldMessage;
+    }
+
+    @Step("The user left the username and password fields blank")
+    public String getUserEmptyUsernameAndPasswordField() {
+        String getUserEmptyUsernameAndPasswordFieldMessage = driver.findElement(EMPTY_LOGIN_PASSWORD_FIELD).getText();
+        log.info("Empty Login And Password field message received: " + getUserEmptyUsernameAndPasswordFieldMessage);
+        return getUserEmptyUsernameAndPasswordFieldMessage;
     }
 
     @Override
