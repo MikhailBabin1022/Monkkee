@@ -7,6 +7,8 @@ import pages.ImageUploadPage;
 
 import java.io.File;
 
+import static org.testng.AssertJUnit.assertEquals;
+
 public class ImageUploadTest extends BaseTest {
 
     @Test
@@ -17,7 +19,7 @@ public class ImageUploadTest extends BaseTest {
         driver.findElement(By.xpath("\"//input[@id='cke_388_fileInput_input' and @type='file' and @name='txtUpload']\"")).sendKeys(file.getAbsolutePath());
         driver.findElement(By.xpath("//span[@id='cke_405_label' and @class='cke_dialog_ui_button' and text()='OK']")).click();
 
-        Assert.assertEquals( "File Uploaded!","File Uploaded");
+       assertEquals( "File Uploaded!","File Uploaded");
     }
 }
 

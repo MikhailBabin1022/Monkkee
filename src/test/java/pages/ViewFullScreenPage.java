@@ -10,7 +10,7 @@ public class ViewFullScreenPage extends BasePage {
     public static void FULL_SCREEN_BUTTON() {
     }
 
-    public ViewFullScreenPage clickFullscreen() {
+    public static ViewFullScreenPage clickFullscreen() {
         driver.findElement(FULL_SCREEN_BUTTON).click();
         return new ViewFullScreenPage(driver);
     }
@@ -20,7 +20,8 @@ public class ViewFullScreenPage extends BasePage {
     }
 
     @Override
-    public static boolean isPageOpen() {
+    public boolean isPageOpen() {
         return false;
     }
 }
+
