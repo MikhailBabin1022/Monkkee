@@ -1,23 +1,21 @@
-package pages;
+
+        package pages;
 
 import io.qameta.allure.Step;
+
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import lombok.extern.log4j.Log4j2;
-import org.slf4j.Logger;
 
-import java.net.URL;
 
-import static java.awt.SystemColor.text;
-
-@Log4j2
+        @Log4j2
 public class MainPage extends BasePage {
 
     public static final By SETTINGS_BUTTON = By.xpath("//a[@class='user-menu__btn' and @href='#/settings/locale' and contains(., 'Settings')]");
     public static final By LOGOUT_BUTTON = By.xpath("//button[@class='user-menu__btn' and @ng-click='logout($event)']");
     public static final By CREATE_AN_ENTRY = By.xpath("//i[@class='icon-plus']");
-    public static final By DELETE_ENTRY = By.id("delete-entry");
+    public static final By DELETE_ENTRY = By.xpath("//a[@id='delete-entries']");
     public static final By PRINT_BUTTON = By.xpath("//a[@class='btn btn-default' and @href='javascript:void(0)' and @title='Print entry']");
     public static final By ICON_LEFT = By.xpath("//i[@class='icon-chevron-left']");
     public static final By ICON_RIGHT = By.xpath("//i[@class='icon-chevron-right']");
@@ -25,14 +23,12 @@ public class MainPage extends BasePage {
     public static final By SAVE_BUTTON = By.xpath("//a[@class='cke_button cke_button__savetoggle cke_button_off cke_button_disabled']");
     public static final By ALL_CHECKBOX = By.xpath("//input[@ng-change='selectOrUnselectAll()']");
     public static final By TEXT_INPUT_FIELD = By.xpath("//div[contains(@class,'contenteditable cke_editable')]");
-    private Logger log;
+    public static final By CHECKBOX = By.xpath("//input[@ng-change=\"updateSelectionState()\"]");
+    public static final By NO_ENTRY = By.xpath("//div[@class='none centered' and @ng-show='noneMsgVisible']");
 
     public MainPage(WebDriver driver) {
         super(driver);
     }
-
-
-
 
     @Step("Create a new entry with the text")
     public MainPage createNewEntryWithText(String text){
@@ -45,11 +41,11 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    @Step("Delete entry")
-    public MainPage deleteEntry(){
+    @Step("Click Delete entry")
+    public MainPage clickDeleteEntry(){
         driver.findElement(DELETE_ENTRY).click();
         log.info("Press delete with Xpath");
-        Alert alert= driver.switchTo().alert();
+        Alert alert = driver.switchTo().alert();
         alert.accept();
         return this;
     }
@@ -69,13 +65,13 @@ public class MainPage extends BasePage {
     }
 
     @Step("Click Print Button")
-    public MainPage clickPrintbutton() {
+    public MainPage clickPrintButton() {
         driver.findElement(PRINT_BUTTON).click();
         log.info("Press print button+Xpath");
         return this;
     }
 
-    @Step("Click to the Settings Button")
+    @Step("Click the Settings Button")
     public MainPage clickSettingsButton(){
         driver.findElement(SETTINGS_BUTTON).click();
         log.info("Press Settings button +Xpath");
@@ -95,17 +91,28 @@ public class MainPage extends BasePage {
         log.info("Press Icon right +Xpath");
         return this;
     }
+
     @Step("Select all entries")
     public MainPage selectAllEntries() {
         driver.findElement(ALL_CHECKBOX).click();
-        log.info("Click all Chrckbox +Xpath");
+        log.info("Click all Checkbox +Xpath");
+        return this;
     }
 
+    @Step("Select entries")
+    public MainPage selectEntries() {
+        driver.findElement(CHECKBOX).click();
+        log.info("Click Checkbox +Xpath");
+        return this;
+    }
 
-
+    @Step("Entry missing")
+    public String notEntry() {
+        return driver.findElement(NO_ENTRY).getText();
+    }
 
     @Override
-    public  boolean isPageOpen() {
+    public boolean isPageOpen() {
         return isExist(CREATE_AN_ENTRY);
     }
 }
