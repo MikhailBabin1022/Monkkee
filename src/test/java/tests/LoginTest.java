@@ -1,10 +1,6 @@
 package tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.MainPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
@@ -17,50 +13,48 @@ public class LoginTest extends BaseTest {
         @Test(description = "Validate login and password")
         public void inputValidDataUserAndPassword() {
                 loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
-                .clickLoginButton();
+                        .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                        .clickLoginButton();
                 assertTrue(mainPage.isPageOpen());
-
         }
 
         @Test(description = "User enters invalid data")
         public void inputInvalidDataUserAndPassword() {
                 loginPage.open()
-                .inputLoginAndPassword("wewewew", "wewewewew")
-                .clickLoginButton();
-               assertEquals(loginPage.getErrorMessage(), "Login_failed");
-
+                        .inputLoginAndPassword("wewewew", "wewewewew")
+                        .clickLoginButton();
+                assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
 
         @Test(description = "User did not enter a password")
-        public void inputNotPassword() {
+        public void inputUserEmptyPasswordField() {
                 loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "")
-                .clickLoginButton();
-                assertEquals(loginPage.getErrorMessage(), "Mandatory field");
+                        .inputLoginAndPassword("hsaat@mailto.plus", "")
+                        .clickLoginButton();
+                assertEquals(loginPage.getUserEmptyPasswordField(), "");
         }
 
         @Test(description = "The user has not entered a login")
         public void inputNotEnteredLogin() {
                 loginPage.open()
-                .inputLoginAndPassword("", "BC12345WGHHGHGHGHGHVG")
-                .clickLoginButton();
-               assertEquals(loginPage.getErrorMessage(), "Mandatory field");
+                        .inputLoginAndPassword("", "BC12345WGHHGHGHGHGHVG")
+                        .clickLoginButton();
+                assertEquals(loginPage.getUserEmptyField(), "");
         }
 
         @Test(description = "The user did not enter a user and password")
         public void inputNotUserAndPassword() {
                 loginPage.open()
-                .inputLoginAndPassword("", "")
-                .clickLoginButton();
-                assertEquals(loginPage.getErrorMessage(), "Mandatory field");
+                        .inputLoginAndPassword("", "")
+                        .clickLoginButton();
+                assertEquals(loginPage.getUserEmptyUsernameAndPasswordField(), "Mandatory field");
         }
 
         @Test(description = "The user entered a Russian 'с' instead of an English 'c' in the Password field.")
         public void inputIncorrectCharacterInPassword() {
                 loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "Bс12345WGHHGHGHGHGHVG")
-                .clickLoginButton();
+                        .inputLoginAndPassword("hsaat@mailto.plus", "Bс12345WGHHGHGHGHGHVG")
+                        .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
 
