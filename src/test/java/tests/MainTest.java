@@ -1,9 +1,9 @@
 package tests;
 
 import lombok.extern.log4j.Log4j2;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 @Log4j2
@@ -16,25 +16,30 @@ public class MainTest extends BaseTest {
                 .clickLoginButton()
                 .createNewEntryWithText("")
                 .clickHomeButton();
-
-        Assert.assertTrue(mainPage.isPageOpen());
+        assertTrue(mainPage.isPageOpen());
     }
 
-    @Test(description = "Delete all entry")
-    public void userDeleteAllEntry() {
+    @Test(description = "Delete all entries")
+    public void userDeleteAllEntries() {
         loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton()
                 .selectAllEntries()
-                .clickdeleteEntry();
+                .clickDeleteEntry();
+        assertEquals(mainPage.notEntry(), "No entries found");
+    }
 
-        Assert.assertTrue(mainPage.isPageOpen());
+    @Test(description = "Delete entry")
+    public void userDeleteEntry(){
+        loginPage.open()
+                .inputLoginAndPassword("hsaat@mailto.plus","BC12345WGHHGHGHGHGHVG")
+                .clickLoginButton()
+                .selectEntries()
+                .clickDeleteEntry();
+        assertEquals(mainPage.notEntry(), "No entries found");
     }
 
 }
-
-
-
 
 
 
