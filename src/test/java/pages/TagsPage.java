@@ -41,11 +41,14 @@ public class TagsPage extends BasePage {
         return this;
     }
 
-    @Step("Enter text in Create new tag")
-    public TagsPage enterTextInCreateNewTag() {
-        driver.findElement(CREATE_NEW_TAGS_FIELD).sendKeys();
-        log.info("Writing text Create new tag");
+
+    @Step("Create New Tags with text")
+    public TagsPage createNewTagsWithText(){
+        driver.findElement(CREATE_NEW_TAGS_FIELD).sendKeys("Tags12345");
+        log.info("Tags Created");
         return this;
+
+
     }
 
 
