@@ -75,4 +75,7 @@ public class LoginPage extends BasePage {
     public boolean isPageOpen() {
         return isExist(LOGIN_BUTTON);
     }
+
+    public void clickclickManageTagsButton() {
+    }
 }

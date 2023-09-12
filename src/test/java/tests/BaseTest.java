@@ -7,10 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.HomePage;
-import pages.ImageUploadPage;
-import pages.LoginPage;
-import pages.MainPage;
+import pages.*;
 
 import java.time.Duration;
 
@@ -20,6 +17,7 @@ public abstract class BaseTest {
     LoginPage loginPage;
     MainPage mainPage;
     ImageUploadPage imageUploadPage;
+    TagsPage tagsPage;
     @Step("Setting up and opening the browser")
     @BeforeMethod
     public void setUp(){
@@ -33,6 +31,7 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver);
         mainPage = new MainPage(driver);
         imageUploadPage = new ImageUploadPage(driver);
+        tagsPage = new TagsPage(driver);
     }
 
     @Step("Exit the browser")
