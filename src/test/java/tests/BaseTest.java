@@ -18,6 +18,7 @@ public abstract class BaseTest {
     MainPage mainPage;
     ImageUploadPage imageUploadPage;
     TagsPage tagsPage;
+    SettingsPage settingsPage;
     @Step("Setting up and opening the browser")
     @BeforeMethod
     public void setUp(){
@@ -32,6 +33,7 @@ public abstract class BaseTest {
         mainPage = new MainPage(driver);
         imageUploadPage = new ImageUploadPage(driver);
         tagsPage = new TagsPage(driver);
+        settingsPage = new SettingsPage(driver);
     }
 
     @Step("Exit the browser")
