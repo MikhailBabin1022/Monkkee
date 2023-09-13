@@ -35,6 +35,36 @@ public class SettingsPage extends BasePage {
         return this;
     }
 
+    @Step("Select a language from the list of languages")
+    public SettingsPage selectLanguagelist() {
+        List<WebElement> language = driver.findElements(LANGUAGE_LIST);
+        log.info("put all the elements in a list");
+        language.get(2).click();
+        log.info("Select an item from a list");
+        return this;
+    }
+    @Step("Language change message")
+        public String gettextLanguageChange() {
+        return driver.findElement(SELECT_LANGUAGE_MESSAGE).getText();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public boolean isPageOpen() {
+        return isExist(SETTINGS_BUTTON);
+    }
+}
+
 
 
 
