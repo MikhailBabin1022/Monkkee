@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
         @Log4j2
 public class MainPage extends BasePage {
 
-    public static final By SETTINGS_BUTTON = By.xpath("//a[@class='user-menu__btn' and @href='#/settings/locale' and contains(., 'Settings')]");
+    public static final By SETTINGS_BUTTON = By.xpath("//a[@class='user-menu__btn']");
     public static final By LOGOUT_BUTTON = By.xpath("//button[@class='user-menu__btn' and @ng-click='logout($event)']");
     public static final By CREATE_AN_ENTRY = By.xpath("//i[@class='icon-plus']");
     public static final By DELETE_ENTRY = By.xpath("//a[@id='delete-entries']");

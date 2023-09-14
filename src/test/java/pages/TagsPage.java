@@ -21,7 +21,7 @@ public class TagsPage extends BasePage {
     public static final By HOME_BUTTON = By.xpath("//i[@class='icon-home']");
     public static final By RECORDING = By.xpath("(//div[@class=' body'])[1]");
     public static final By NO_ENTRIES_FOUND = By.xpath("//div[@class='none centered']");
-    public static final By TAG_TEXT = By.xpath("//td[@class='tag ng-binding']");
+    public static final By TAG_LIST_TEXT = By.xpath("//td[contains(text(), 'Hello World 123456789')]");
 
 
     public TagsPage(WebDriver driver) {
@@ -86,18 +86,22 @@ public class TagsPage extends BasePage {
     }
 
     @Step("No entries found")
-    public  String noEntriesFound() {
+    public String  noEntriesFound() {
         return driver.findElement(NO_ENTRIES_FOUND).getText();
     }
 
-    @Step("Tag Text")
-    public  String tagText() {
-        List<WebElement> list = driver.findElements(TAG_TEXT);
+    @Step("Взять текст из списка тегов")
+    public String getTextListTeg() {
+        List<WebElement>list = driver.findElements(TAG_LIST_TEXT);
+        log.info("Put all elements into a list");
         return list.get(0).getText();
     }
+
 
     @Override
     public boolean isPageOpen() {
         return isExist(EDIT_TAGS);
     }
+
+
 }
