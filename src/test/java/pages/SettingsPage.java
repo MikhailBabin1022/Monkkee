@@ -47,7 +47,7 @@ public class SettingsPage extends BasePage {
     @Step("Select Language in the Settings")
     public SettingsPage selectSettingLanguage() {
         List<WebElement> settings = driver.findElements(MENU_SETTINGS_LIST);
-        log.info("Put all elements into a list");
+        log.info(" all elements into a list");
         settings.get(0).click();
         log.info("Select an item from a list");
         return this;
@@ -55,13 +55,13 @@ public class SettingsPage extends BasePage {
     @Step("Select Language ")
     public SettingsPage selectLanguage() {
         List<WebElement> settings = driver.findElements(LANGUAGE_SELECTION_LIST);
-        log.info("Put all elements into a list");
+        log.info(" all elements into a list");
         settings.get(0).click();
         log.info("Select an item from a list");
         return this;
     }
     @Step("Text message language")
-    public String lanhuageChangeMessage (String text) {
+    public String languageChangeMessage(String text) {
         driver.findElement(LANGUAGE_CHANGE_MESSAGE).getText();
         log.info("Text message language " + text);
         return text;
