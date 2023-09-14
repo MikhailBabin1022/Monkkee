@@ -60,6 +60,12 @@ public class SettingsPage extends BasePage {
         log.info("Select an item from a list");
         return this;
     }
+    @Step("Text message language")
+    public String lanhuageChangeMessage (String text) {
+        driver.findElement(LANGUAGE_CHANGE_MESSAGE).getText();
+        log.info("Text message language " + text);
+        return text;
+    }
 
 
 
