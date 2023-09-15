@@ -57,6 +57,25 @@ public class LoginTest extends BaseTest {
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
+        @Test(description = "Enter invalid characters in Password")
+        public void inputentherinvalidcharactersPassword() {
+                loginPage.open()
+                        .inputLoginAndPassword("hsaat@mailto.plus", "#!%%%%%%%%%%%%%#")
+                        .clickLoginButton();
+                assertEquals(loginPage.getErrorMessage(), "Login failed");
+        }
 
 
 }
+
+        @Test(description = "Enter invalid characters in Password")
+        public void inputentherinvalidcharactersUser() {
+                loginPage.open()
+                        .inputLoginAndPassword("#!%%%%%%%%%%%%%#", "Bс12345WGHHGHGHGHGHVG")
+                        .clickLoginButton();
+                assertEquals(loginPage.getErrorMessage(), "Login failed");
+        }
+
+}
+
+
