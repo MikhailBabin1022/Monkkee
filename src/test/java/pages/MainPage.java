@@ -24,7 +24,7 @@ public class MainPage extends BasePage {
     public static final By ALL_CHECKBOX = By.xpath("//input[@ng-change='selectOrUnselectAll()']");
     public static final By TEXT_INPUT_FIELD = By.xpath("//div[contains(@class,'contenteditable cke_editable')]");
     public static final By CHECKBOX = By.xpath("//input[@ng-change=\"updateSelectionState()\"]");
-    public static final By NO_ENTRY = By.xpath("//div[@class='none centered' and @ng-show='noneMsgVisible']");
+    public static final By NO_ENTRY = By.xpath("//div[@class='none centered']");
 
     public MainPage(WebDriver driver) {
         super(driver);

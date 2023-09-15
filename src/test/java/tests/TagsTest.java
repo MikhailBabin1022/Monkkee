@@ -16,10 +16,11 @@ public class TagsTest extends BaseTest {
                 .clickLoginButton()
                 .createNewEntryWithText("");
         tagsPage.createNewTag("Hello World 123456789")
-                        .clickHomeButton();
+                .clickOkCreateTagsButton()
+                .clickHomeButton();
         tagsPage.clickManageTagsButton()
                 .getTextListTeg();
-        assertEquals(tagsPage.getTextListTeg(),"Hello World 123456789","Tags not created");
+        assertEquals(tagsPage.getTextListTeg(), "Hello World 123456789", "Tags not created");
 
     }
 
@@ -28,25 +29,9 @@ public class TagsTest extends BaseTest {
         loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
-        tagsPage.clickManageTagsButton()
-                .getTextListTeg();
-
-
-        assertEquals(tagsPage.noEntriesFound(), "Tags deleted", "No tags");
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-
+                tagsPage.clickManageTagsButton()
+                        .clickDeleteTagsButton();
+     assertEquals(tagsPage.noTagsOnPage(),"No tags","Tags not deleted");
 
 
 
@@ -54,6 +39,24 @@ public class TagsTest extends BaseTest {
 
 
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

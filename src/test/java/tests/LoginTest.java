@@ -66,8 +66,7 @@ public class LoginTest extends BaseTest {
         }
 
 
-
-        @Test(description = "Enter invalid characters in Password")
+        @Test(description = "Enter invalid characters in Login")
         public void inputentherinvalidcharactersUser() {
                 loginPage.open()
                         .inputLoginAndPassword("#!%%%%%%%%%%%%%#", "Bс12345WGHHGHGHGHGHVG")

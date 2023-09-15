@@ -22,6 +22,7 @@ public class TagsPage extends BasePage {
     public static final By RECORDING = By.xpath("(//div[@class=' body'])[1]");
     public static final By NO_ENTRIES_FOUND = By.xpath("//div[@class='none centered']");
     public static final By TAG_LIST_TEXT = By.xpath("//td[contains(text(), 'Hello World 123456789')]");
+    public static final By NO_TAGS = By.xpath("//div[@class='none centered']");
 
 
     public TagsPage(WebDriver driver) {
@@ -96,7 +97,10 @@ public class TagsPage extends BasePage {
         log.info(" all elements into a list");
         return list.get(0).getText();
     }
-
+    @Step("No Tags on Page")
+    public String noTagsOnPage() {
+        return driver.findElement(NO_TAGS).getText();
+    }
 
     @Override
     public boolean isPageOpen() {
