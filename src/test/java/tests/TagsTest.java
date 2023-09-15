@@ -29,7 +29,8 @@ public class TagsTest extends BaseTest {
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
         tagsPage.clickManageTagsButton()
-                .clickDeleteTagsButton();
+                .getTextListTeg();
+
 
         assertEquals(tagsPage.noEntriesFound(), "Tags deleted", "No tags");
 

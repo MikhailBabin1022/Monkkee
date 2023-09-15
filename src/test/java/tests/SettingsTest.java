@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.SettingsPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -16,7 +15,7 @@ public class SettingsTest extends BaseTest{
         settingsPage.selectSettingLanguage();
         settingsPage.selectLanguage()
                 .clickOkButton();
-        assertEquals(settingsPage.lanhuageChangeMessage("Language Change"),  "Language Change");
+        assertEquals(settingsPage.languageChangeMessage("Language Change"),  "Language Change");
 
     }
 
