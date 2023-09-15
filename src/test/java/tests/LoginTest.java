@@ -66,7 +66,6 @@ public class LoginTest extends BaseTest {
         }
 
 
-}
 
         @Test(description = "Enter invalid characters in Password")
         public void inputentherinvalidcharactersUser() {
