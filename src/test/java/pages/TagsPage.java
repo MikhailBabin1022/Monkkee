@@ -90,7 +90,7 @@ public class TagsPage extends BasePage {
         return driver.findElement(NO_ENTRIES_FOUND).getText();
     }
 
-    @Step("Tag text from the list")
+    @Step("Text tags from the list")
     public String getTextListTeg() {
         List<WebElement>list = driver.findElements(TAG_LIST_TEXT);
         log.info(" all elements into a list");
