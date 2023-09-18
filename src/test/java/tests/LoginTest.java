@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "Validate login and password")
         public void inputValidDataUserAndPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("user", "password")
+                        .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                         .clickLoginButton();
                 assertTrue(mainPage.isPageOpen());
         }
