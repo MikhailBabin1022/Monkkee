@@ -111,6 +111,11 @@ public class MainPage extends BasePage {
         return driver.findElement(NO_ENTRY).getText();
     }
 
+            @Step("text create entry")
+            public String getTextEntry() {
+                return driver.findElement(CREATE_AN_ENTRY).getText();
+            }
+
     @Override
     public boolean isPageOpen() {
         return isExist(CREATE_AN_ENTRY);

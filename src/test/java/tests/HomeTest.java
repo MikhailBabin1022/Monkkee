@@ -6,15 +6,13 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class HomeTest extends BaseTest {
 
-    @Test(description = "User open website")
-    public void userOpensWebsite() {
-        homePage.open();
-        homePage.isPageOpen();
-
-        assertTrue(homePage.isPageOpen());
+    @Test(description = "Go to login page")
+    public void userGoToLoginPage() {
+        homePage.open()
+        .clickLoginButton()
+                .isPageOpen();
+        assertTrue(loginPage.isPageOpen());
     }
-
-
 
 
 

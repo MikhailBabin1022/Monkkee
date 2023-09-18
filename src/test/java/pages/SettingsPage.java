@@ -18,6 +18,7 @@ public class SettingsPage extends BasePage {
     public static By LANGUAGE_SELECTION_LIST = By.xpath("//option[@value=\"en\"]");
     public static By LANGUAGE_CHANGE_MESSAGE = By.xpath("//div[normalize-space(text()) = 'Your language has been changed successfully']");
     public static By MENU_SETTINGS_LIST = By.xpath("//div//li[@class='active']");
+    public static final By DONATIONS_BUTTON = By.xpath("//a[@href='#/settings/donation_payment']");
     public SettingsPage(WebDriver driver) {
         super(driver);
     }
@@ -66,11 +67,11 @@ public class SettingsPage extends BasePage {
         log.info("Text message language " + text);
         return text;
     }
-
-
-
-
-
+    @Step("Click Donation Button")
+    public void clickDonationButton() {
+        log.info("Click Settings Button with xPath: " + DONATIONS_BUTTON);
+        driver.findElement(DONATIONS_BUTTON).click();
+    }
 
 
 
