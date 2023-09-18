@@ -9,7 +9,7 @@ public class SettingsTest extends BaseTest{
     @Test(description = "Select Language in the Settings")
     public void selectLanguageSettings()throws InterruptedException {
         loginPage.open()
-                .inputLoginAndPassword("user", "password")
+                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton();
         settingsPage.clickSettingsButton();
         settingsPage.selectSettingLanguage();

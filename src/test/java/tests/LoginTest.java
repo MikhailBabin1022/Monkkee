@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "User enters invalid data")
         public void inputInvalidDataUserAndPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("user", "password")
+                        .inputLoginAndPassword("login", "password")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
@@ -53,14 +53,14 @@ public class LoginTest extends BaseTest {
         @Test(description = "The user entered a Russian 'с' instead of an English 'c' in the Password field.")
         public void inputIncorrectCharacterInPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("user", "password")
+                        .inputLoginAndPassword("login", "password")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
         @Test(description = "Enter invalid characters in Password")
         public void inputentherinvalidcharactersPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("user", "#!%%%%%%%%%%%%%#")
+                        .inputLoginAndPassword("login", "#!%%%%%%%%%%%%%#")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
