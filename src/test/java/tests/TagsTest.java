@@ -12,7 +12,7 @@ public class TagsTest extends BaseTest {
     @Test(description = "Create Tag")
     public void createTag() {
         loginPage.open()
-                .inputLoginAndPassword("login", "password")
+                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton()
                 .createNewEntryWithText("");
         tagsPage.createNewTag("Hello World 123456789")
