@@ -12,85 +12,96 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>4.10.0</selenium.version>
-        <testng.version>7.8.0</testng.version>
-        <bonigarcia.version>5.5.2</bonigarcia.version>
-        <jackson-dataformat-yaml.version>2.12.3</jackson-dataformat-yaml.version>
-        <log4j-core.version>2.14.1</log4j-core.version>
+        <selenium.version>4.11.0</selenium.version>
+        <testing.version>7.7.1</testing.version>
+        <bonigarcia.version>5.4.1</bonigarcia.version>
+        <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <lombok.version>1.18.24</lombok.version>
-        <selenium-java.version>4.10.0</selenium-java.version>
-        <allure-testng.version>2.10.0</allure-testng.version>
+        <javafaker.version>1.0.2</javafaker.version>
+        <allure-testng.version>2.13.9</allure-testng.version>
+        <log4j-core.version>2.14.1</log4j-core.version>
+        <jackson-dataformat-yaml.version>2.12.3</jackson-dataformat-yaml.version>
 
 
     </properties>
 
     <dependencies>
-
         <dependency>
-
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.10.0</version>
+            <version>${selenium.version}</version>
         </dependency>
-        <dependency>
 
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.8.0</version>
+            <version>${testing.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.5.2</version>
-            <scope>compile</scope>
+            <version>${bonigarcia.version}</version>
+            <scope>test</scope>
         </dependency>
 
-
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>2.13.9</version>
-            <scope>compile</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.20.0</version>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.12.3</version>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
         </dependency>
 
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson-dataformat-yaml.version}</version>
+        </dependency>
+
     </dependencies>
+
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+
+
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m
                     </argLine>
                 </configuration>
+
             </plugin>
 
             <plugin>
