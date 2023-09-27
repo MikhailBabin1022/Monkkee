@@ -28,7 +28,7 @@ public class MainTest extends BaseTest {
                 .clickLoginButton()
                 .selectEntries()
                 .clickDeleteEntry();
-        assertEquals(mainPage.notEntry(),"No Entries Found","No Entries Found");
+        assertEquals(mainPage.notEntry(),"Not Entry","Not Entry");
 
 
     }
