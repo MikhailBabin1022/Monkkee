@@ -15,7 +15,7 @@ public class SettingsTest extends BaseTest{
         settingsPage.selectSettingLanguage();
         settingsPage.selectLanguage()
                 .clickOkButton();
-        assertEquals(settingsPage.languageChangeMessage("Language Change"),  "Language Change");
+        assertEquals(settingsPage.languageChangeMessage("Your language has been changed successfully"),  "Your language has been changed successfully");
 
     }
 
@@ -25,15 +25,6 @@ public class SettingsTest extends BaseTest{
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
