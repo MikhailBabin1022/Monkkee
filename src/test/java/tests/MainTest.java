@@ -15,9 +15,9 @@ public class MainTest extends BaseTest {
         loginPage.open()
                 .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
                 .clickLoginButton()
-                .createNewEntryWithText("Hello World 12345")
+                .createNewEntryWithText("Hello my name is Mikhail")
                 .clickHomeButton();
-        assertEquals(mainPage.getTextEntry(), "Hello World12345", "Hello World12345");
+        assertEquals(mainPage.getTextEntry(), "Hello my name is Mikhail", "Hello my name is Mikhail");
     }
 
 
@@ -28,7 +28,7 @@ public class MainTest extends BaseTest {
                 .clickLoginButton()
                 .selectEntries()
                 .clickDeleteEntry();
-        assertEquals(mainPage.getTextEntry(),"Entry deleted","Entry deleted");
+        assertEquals(mainPage.notEntry(),"No Entries Found","No Entries Found");
 
 
     }
