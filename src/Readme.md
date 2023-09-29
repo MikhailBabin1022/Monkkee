@@ -15,9 +15,7 @@ Check List:
 
 2.Home.Page
 
-1.Перейти на страницу
-
-1.Login Page
+1.Перейти на страницу Login Page
 
 3.Main.page
 
