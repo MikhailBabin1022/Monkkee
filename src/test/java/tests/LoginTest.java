@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "Validate login and password")
         public void inputValidDataUserAndPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                        .inputLoginAndPassword("User", "Password")
                         .clickLoginButton();
                 assertTrue(mainPage.isPageOpen());
         }
@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "User enters invalid data")
         public void inputInvalidDataUserAndPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("login", "password")
+                        .inputLoginAndPassword("User", "Password")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "User did not enter a password")
         public void inputUserEmptyPasswordField() {
                 loginPage.open()
-                        .inputLoginAndPassword("user", "")
+                        .inputLoginAndPassword("User", "")
                         .clickLoginButton();
                 assertEquals(loginPage.getUserEmptyPasswordField(), "");
         }
@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "The user has not entered a login")
         public void inputNotEnteredLogin() {
                 loginPage.open()
-                        .inputLoginAndPassword("", "password")
+                        .inputLoginAndPassword("", "Password")
                         .clickLoginButton();
                 assertEquals(loginPage.getUserEmptyField(), "");
         }
@@ -53,14 +53,14 @@ public class LoginTest extends BaseTest {
         @Test(description = "The user entered a Russian 'с' instead of an English 'c' in the Password field.")
         public void inputIncorrectCharacterInPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("login", "password")
+                        .inputLoginAndPassword("User", "Password")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
         @Test(description = "Enter invalid characters in Password")
         public void inputentherinvalidcharactersPassword() {
                 loginPage.open()
-                        .inputLoginAndPassword("login", "#!%%%%%%%%%%%%%#")
+                        .inputLoginAndPassword("User", "#!%%%%%%%%%%%%%#")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
@@ -69,7 +69,7 @@ public class LoginTest extends BaseTest {
         @Test(description = "Enter invalid characters in Login")
         public void inputentherinvalidcharactersUser() {
                 loginPage.open()
-                        .inputLoginAndPassword("#!%%%%%%%%%%%%%#", "password")
+                        .inputLoginAndPassword("#!%%%%%%%%%%%%%#", "Password")
                         .clickLoginButton();
                 assertEquals(loginPage.getErrorMessage(), "Login failed");
         }
