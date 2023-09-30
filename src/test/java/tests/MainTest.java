@@ -13,7 +13,7 @@ public class MainTest extends BaseTest {
     @Test(description = "Create a new entry")
     public void userCreateEntry() {
         loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                .inputLoginAndPassword("User", "Password")
                 .clickLoginButton()
                 .createNewEntryWithText("Hello my name is Mikhail")
                 .clickHomeButton();
@@ -24,7 +24,7 @@ public class MainTest extends BaseTest {
     @Test(description = "Delete entry")
     public void userDeleteEntry() {
         loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                .inputLoginAndPassword("User", "Password")
                 .clickLoginButton()
                 .selectEntries()
                 .clickDeleteEntry();

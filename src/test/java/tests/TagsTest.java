@@ -12,7 +12,7 @@ public class TagsTest extends BaseTest {
     @Test(description = "Create Tag")
     public void createTag() {
         loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                .inputLoginAndPassword("User", "Password")
                 .clickLoginButton()
                 .createNewEntryWithText("");
         tagsPage.createNewTag("Hello World 123456789")
@@ -27,7 +27,7 @@ public class TagsTest extends BaseTest {
     @Test(description = "Delete Tag")
     public void deleteTag() {
         loginPage.open()
-                .inputLoginAndPassword("hsaat@mailto.plus", "BC12345WGHHGHGHGHGHVG")
+                .inputLoginAndPassword("User", "Password")
                 .clickLoginButton();
                 tagsPage.clickManageTagsButton()
                         .clickDeleteTagsButton();
